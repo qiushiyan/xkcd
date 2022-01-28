@@ -1,5 +1,6 @@
 ---
 output: github_document
+always_allow_html: true
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -9,7 +10,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  message = FALSE, 
+  warning = FALSE
 )
 ```
 
@@ -19,7 +22,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-This package is a wrapper around the javascript [chart.xkcd](https://github.com/timqian/chart.xkcd) library to create xkcd-styled chart for R. 
+This package is a wrapper around the javascript [chart.xkcd](https://github.com/timqian/chart.xkcd) library to create xkcd-styled chart for R.
 
 ## Installation
 
@@ -29,6 +32,37 @@ You can install the development version of xkcd like so:
 remotes::install_github("qiushiyan/xkcd")
 ```
 
-# Scatterplot
+# Chart Types
 
-# Line 
+```{r}
+library(xkcd)
+library(dplyr)
+df <- gapminder::gapminder |>
+  filter(country %in% c("United States", "United Kingdom", "Canada", "Australia"))
+```
+
+## Line
+
+
+```{r}
+df |>
+  x_chart(title = "my xkcd line graph") |>
+  x_line(x = "year", y = "lifeExp", color = "country") |>
+  x_options(legend_position = 4)
+```
+
+## Scatterplot
+
+
+
+
+
+
+# Development
+
+
+```bash
+git clone https://github.com/qiushiyan/xkcd
+pnpm install
+yarn watch # esbuild compilation
+```

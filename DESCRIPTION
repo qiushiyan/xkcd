@@ -1,9 +1,9 @@
 Package: xkcd
-Title: What the Package Does (One Line, Title Case)
+Title: xkcd-styled chart for R 
 Version: 0.0.0.9000
 Authors@R: 
     person("Qiushi", "Yan", , "qiushi.yann@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: a wrapper around the javascript chart.xkcd library 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -11,3 +11,7 @@ RoxygenNote: 7.1.2
 Imports: 
     htmlwidgets
 URL: https://qiushiyan.github.io/xkcd/
+Suggests: 
+    dplyr,
+    gapminder
+BugReports: https://qiushiyan.github.io/xkcd/issues
