@@ -11,3 +11,7 @@
 ^yarn-error\.log$
 ^\.yarn$
 ^README\.Rmd$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

@@ -10,3 +10,4 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
     htmlwidgets
+URL: https://qiushiyan.github.io/xkcd/
