@@ -1,0 +1,13 @@
+{
+	"devDependencies": {
+		"@types/node": "^17.0.12",
+		"esbuild": "^0.14.14",
+		"typescript": "^4.5.5"
+	},
+	"scripts": {
+		"watch": "node esbuild.js"
+	},
+	"dependencies": {
+		"chart.xkcd": "^1.1.13"
+	}
+}
