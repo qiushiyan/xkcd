@@ -4,6 +4,12 @@
     <loc>https://qiushiyan.github.io/xkcd/404.html</loc>
   </url>
   <url>
+    <loc>https://qiushiyan.github.io/xkcd/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://qiushiyan.github.io/xkcd/articles/xkcd.html</loc>
+  </url>
+  <url>
     <loc>https://qiushiyan.github.io/xkcd/authors.html</loc>
   </url>
   <url>
@@ -14,6 +20,9 @@
   </url>
   <url>
     <loc>https://qiushiyan.github.io/xkcd/reference/init.html</loc>
+  </url>
+  <url>
+    <loc>https://qiushiyan.github.io/xkcd/reference/x_bar.html</loc>
   </url>
   <url>
     <loc>https://qiushiyan.github.io/xkcd/reference/x_line.html</loc>
