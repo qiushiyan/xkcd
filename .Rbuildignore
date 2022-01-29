@@ -16,3 +16,4 @@
 ^pkgdown$
 ^\.github$
 ^screenshots$
+^LICENSE\.md$

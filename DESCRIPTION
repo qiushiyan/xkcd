@@ -4,7 +4,7 @@ Version: 0.1.0
 Authors@R: 
     person("Qiushi", "Yan", , "qiushi.yann@gmail.com", role = c("aut", "cre"))
 Description: a wrapper around the javascript chart.xkcd library 
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2

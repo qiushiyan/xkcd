@@ -39,7 +39,7 @@ df |>
   x_options(legend_position = 4)
 ```
 
-![](https://github.com/qiushiyan/xkcd/blob/ead8301562604bff5a98f62be6efa52008ac0cb3/screenshots/readme-line.png)
+![](https://raw.githubusercontent.com/qiushiyan/xkcd/ead8301562604bff5a98f62be6efa52008ac0cb3/screenshots/readme-line.png)
 
 See more examples at [Getting
 Started](https://qiushiyan.github.io/xkcd/articles/xkcd.html)
