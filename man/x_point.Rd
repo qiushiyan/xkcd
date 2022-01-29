@@ -4,7 +4,20 @@
 \alias{x_point}
 \title{Scatterplot}
 \usage{
-x_point(w, x, y, fill = NULL, size = 1)
+x_point(w, x, y, fill = NULL, size = 1, line = FALSE)
+}
+\arguments{
+\item{w}{an xkcd widget object}
+
+\item{x}{x variable}
+
+\item{y}{y variable}
+
+\item{fill}{optional group variable mapped to dot fill}
+
+\item{size}{dot size}
+
+\item{line}{if dots should be connected by line}
 }
 \description{
 Scatterplot

@@ -2959,7 +2959,6 @@ var lineTransformer = (payload) => {
         data: payload.data[group]
       });
     }
-    console.log("datasets", datasets);
   } else {
     const ydata = payload.data[payload.y];
     datasets = [
@@ -2975,24 +2974,62 @@ var lineTransformer = (payload) => {
   };
 };
 var barTransformer = (payload) => {
+  let datasets = [];
+  if (payload.group) {
+    for (let group in payload.data) {
+      datasets.push({
+        label: group,
+        data: payload.data[group]
+      });
+    }
+  } else {
+    const ydata = payload.data[payload.y];
+    datasets = [
+      {
+        data: ydata
+      }
+    ];
+  }
+  return {
+    labels: payload.xlabels,
+    datasets
+  };
 };
 var pointTransformer = (payload) => {
+  let datasets = [];
+  if (payload.group) {
+    for (let group in payload.data) {
+      datasets.push({
+        label: group,
+        data: payload.data[group]
+      });
+    }
+  } else {
+    datasets = [
+      {
+        label: payload.y,
+        data: payload.data
+      }
+    ];
+  }
+  return {
+    labels: payload.xlabels,
+    datasets
+  };
 };
 var pieTransformer = (payload) => {
 };
 var donutTransformer = (payload) => {
 };
-var stackedBarTransformer = (payload) => {
-};
 var radarTransformer = (payload) => {
 };
 var config = {
   bar: barTransformer,
+  stacked_bar: barTransformer,
   line: lineTransformer,
   point: pointTransformer,
   pie: pieTransformer,
   donut: donutTransformer,
-  stacked_bar: stackedBarTransformer,
   radar: radarTransformer
 };
 var transformPayload = (payload, type) => {
@@ -3002,13 +3039,24 @@ var transformPayload = (payload, type) => {
 
 // srcts/lib/plot.ts
 var import_chart = __toESM(require_dist());
+var buildOptions = (x) => {
+  return Object.assign(__spreadValues({}, x.chartOptions), {
+    data: x.payload
+  });
+};
 var plot = (svg, x) => {
   switch (x.type) {
-    case "line":
-      new import_chart.default.Line(svg, Object.assign(__spreadValues({}, x.chartOptions), {
-        data: x.payload
-      }));
+    case "line" /* LINE */:
+      new import_chart.default.Line(svg, buildOptions(x));
       break;
+    case "point" /* POINT */:
+      new import_chart.default.XY(svg, buildOptions(x));
+      break;
+    case "bar" /* BAR */:
+      console.log(buildOptions(x));
+      new import_chart.default.Bar(svg, buildOptions(x));
+    case "stacked_bar" /* STACKED_BAR */:
+      new import_chart.default.StackedBar(svg, buildOptions(x));
   }
 };
 var plot_default = plot;

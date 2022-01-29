@@ -1,0 +1,84 @@
+---
+title: "Getting Started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{xkcd}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%", 
+  warning = FALSE, 
+  message = FALSE 
+)
+```
+
+## Plot types 
+
+```{r setup}
+library(xkcd)
+library(dplyr)
+
+df <- gapminder::gapminder |>
+  filter(country %in% c("United States", "United Kingdom", "Canada", "Australia"))
+```
+
+
+### Line graph
+
+```{r}
+df |>
+  x_chart(title = "my xkcd line graph") |>
+  x_line(x = "year", y = "lifeExp", color = "country") 
+```
+
+
+### Scatterplot
+
+```{r}
+iris |> 
+  x_chart() |> 
+  x_point(x = "Sepal.Width", y = "Sepal.Length", fill = "Species", size = 1.5) |> 
+  x_options(title = "scatterplot", palette = c("#f7feae", "#46aea0", "#045275"))
+```
+
+
+The `line` parameter in `x_point` controls wheather points are connected, this can be used like `geom_point + geom_line` in ggplot2. 
+
+```{r}
+data.frame(x = 1:10, y = rnorm(10)) |> 
+  x_chart() |> 
+  x_point(x = "x", y = "y", line = TRUE) |> 
+  x_options(legend = FALSE)
+```
+## Bar plot 
+
+```{r}
+data.frame(
+  character = c("Ross", "Rachel", "Joey", "Phoebe", "Monica", "Chanlder"),
+  relationships = c(16, 14, 17, 16, 13, 9)
+) |> 
+  x_chart(title = "# of relationships in Friends") |>
+  x_bar(x = "character", y = "relationships") |> 
+  x_options(legend = FALSE)
+```
+
+Stacked bar chart 
+
+```{r}
+t <- as.data.frame(Titanic)
+t <- t[rep(1:nrow(t), t$Freq), c("Class", "Survived")]
+
+t |> 
+  count(Class, Survived) |> 
+  x_chart(title = "Titanic survivors by class and age") |> 
+  x_bar(x = "Class", y = "n", fill = "Survived") |> 
+  x_options(ylabel = "")
+```
+
+
+## Configuration options 

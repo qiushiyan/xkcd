@@ -7,6 +7,8 @@
 x_line(w, x, y, color = NULL)
 }
 \arguments{
+\item{w}{an xkcd widget object}
+
 \item{x:}{x variable}
 
 \item{y:}{y variable}

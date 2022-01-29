@@ -1,6 +1,6 @@
 ^xkcd\.Rproj$
 ^\.Rproj\.user$
-^srcjs$
+^srcts$
 ^node_modules$
 ^package\.json$
 ^package-lock\.json$
@@ -15,3 +15,4 @@
 ^docs$
 ^pkgdown$
 ^\.github$
+^screenshots$

@@ -14,6 +14,11 @@ export type LinePayload =
   | Required<Pick<Payload, "data" | "x" | "y" | "xlabels">> & {
       group?: string;
     };
+
+export type PointPayload =
+  | Required<Pick<Payload, "data" | "x" | "y">> & {
+      group?: string;
+    };
 export enum ChartType {
   LINE = "line",
   POINT = "point",

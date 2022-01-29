@@ -25,6 +25,10 @@ x_chart <- function(data, title = NULL, ..., width = NULL, height = NULL, elemen
   )
 }
 
+xkcd_html <- function(..., style = ""){
+  htmltools::tags$div(..., style = c(style, "height: 100%;"))
+}
+
 #' Shiny bindings for xkcd
 #'
 #' Output and render functions for using xkcd within Shiny
@@ -42,7 +46,7 @@ x_chart <- function(data, title = NULL, ..., width = NULL, height = NULL, elemen
 #' @name xkcd-shiny
 #'
 #' @export
-xkcdOutput <- function(outputId, width = "100%", height = "400px") {
+xkcdOutput <- function(outputId, width = "100%", height = "100%") {
   htmlwidgets::shinyWidgetOutput(outputId, "xkcd", width, height, package = "xkcd")
 }
 

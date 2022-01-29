@@ -1,4 +1,5 @@
 #' Line Graph
+#' @param w an xkcd widget object
 #' @param x: x variable
 #' @param y: y variable
 #' @param color: optional group variable mapped to colors

@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+
+
 # xkcd (WIP)
 
 <!-- badges: start -->
@@ -32,28 +34,26 @@ You can install the development version of xkcd like so:
 remotes::install_github("qiushiyan/xkcd")
 ```
 
-# Chart Types
+A plot is created first by the initialization of `x_chart`, which is appended by functions such as `e_line`, `e_point` and `e_bar` specifying chart type. For example, a line graph of yearly average life expectancy from the `gapminder` dataset is created as follows 
 
-```{r}
+```{r, eval = FALSE}
 library(xkcd)
 library(dplyr)
+
 df <- gapminder::gapminder |>
   filter(country %in% c("United States", "United Kingdom", "Canada", "Australia"))
-```
 
-## Line
-
-
-```{r}
 df |>
   x_chart(title = "my xkcd line graph") |>
   x_line(x = "year", y = "lifeExp", color = "country") |>
   x_options(legend_position = 4)
 ```
 
-## Scatterplot
+![](../screenshots/readme-line.png)
 
 
+
+See more examples at [Getting Started](https://qiushi.github.io/xkcd/articles/xkcd.html) 
 
 
 

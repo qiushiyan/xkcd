@@ -2,3 +2,6 @@ url: https://qiushiyan.github.io/xkcd/
 template:
   bootstrap: 5
 
+
+home:
+  title: xkcd-styled chart for R

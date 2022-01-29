@@ -6,7 +6,7 @@
 \alias{renderXkcd}
 \title{Shiny bindings for xkcd}
 \usage{
-xkcdOutput(outputId, width = "100\%", height = "400px")
+xkcdOutput(outputId, width = "100\%", height = "100\%")
 
 renderXkcd(expr, env = parent.frame(), quoted = FALSE)
 }

@@ -10,7 +10,6 @@ const lineTransformer = (payload: LinePayload) => {
         data: payload.data[group],
       });
     }
-    console.log("datasets", datasets);
   } else {
     const ydata = payload.data[payload.y];
     datasets = [
@@ -27,25 +26,67 @@ const lineTransformer = (payload: LinePayload) => {
   };
 };
 
-const barTransformer = (payload: any) => {};
+const barTransformer = (payload: any) => {
+  let datasets: {}[] = [];
+  if (payload.group) {
+    for (let group in payload.data) {
+      datasets.push({
+        label: group,
+        data: payload.data[group],
+      });
+    }
+  } else {
+    const ydata = payload.data[payload.y];
+    datasets = [
+      {
+        data: ydata,
+      },
+    ];
+  }
 
-const pointTransformer = (payload: any) => {};
+  return {
+    labels: payload.xlabels,
+    datasets,
+  };
+};
+
+const pointTransformer = (payload: any) => {
+  let datasets: {}[] = [];
+  if (payload.group) {
+    for (let group in payload.data) {
+      datasets.push({
+        label: group,
+        data: payload.data[group],
+      });
+    }
+  } else {
+    datasets = [
+      {
+        label: payload.y,
+        data: payload.data,
+      },
+    ];
+  }
+
+  return {
+    labels: payload.xlabels,
+    datasets,
+  };
+};
 
 const pieTransformer = (payload: any) => {};
 
 const donutTransformer = (payload: any) => {};
 
-const stackedBarTransformer = (payload: any) => {};
-
 const radarTransformer = (payload: any) => {};
 
 const config = {
   bar: barTransformer,
+  stacked_bar: barTransformer,
   line: lineTransformer,
   point: pointTransformer,
   pie: pieTransformer,
   donut: donutTransformer,
-  stacked_bar: stackedBarTransformer,
   radar: radarTransformer,
 };
 

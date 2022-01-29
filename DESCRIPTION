@@ -13,5 +13,8 @@ Imports:
 URL: https://qiushiyan.github.io/xkcd/
 Suggests: 
     dplyr,
-    gapminder
+    knitr,
+    gapminder,
+    rmarkdown
 BugReports: https://qiushiyan.github.io/xkcd/issues
+VignetteBuilder: knitr
