@@ -54,7 +54,7 @@ The `line` parameter in `x_point` controls wheather points are connected, this c
 ```{r}
 data.frame(x = 1:10, y = rnorm(10)) |>
   x_chart() |>
-  x_point(x = "x", y = "y", line = TRUE) |> 
+  x_point(x = "x", y = "y", line = TRUE) |>
   x_options(ylabel = "")
 ```
 ### Bar and pie plot
@@ -103,7 +103,7 @@ data.frame(
   y = abs(rnorm(10)),
   g = rep(c("tiger", "lion"), each = 5)
 ) |>
-  x_chart(title = "Tigher and lion: a random comparison") |>
+  x_chart(title = "Tiger and lion: a random comparison") |>
   x_radar(x = "x", y = "y", color = "g")
 ```
 
