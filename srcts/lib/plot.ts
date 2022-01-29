@@ -1,8 +1,8 @@
-// @ts-nocheck
 import chartXkcd from "chart.xkcd";
+import { ChartOptions } from "../types/options";
 import { ChartType } from "../types/payload";
 
-const buildOptions = (x: any) => {
+const buildOptions = (x: any): ChartOptions => {
   return Object.assign(
     { ...x.chartOptions },
     {
@@ -29,7 +29,6 @@ const plot = (svg: SVGElement, x: any) => {
       new chartXkcd.Pie(svg, buildOptions(x));
       break;
     case ChartType.RADAR:
-      console.log(buildOptions(x));
       new chartXkcd.Radar(svg, buildOptions(x));
       break;
   }

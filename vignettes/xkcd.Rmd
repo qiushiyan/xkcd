@@ -17,6 +17,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+`xkcd` provides plot types for line charts, bar charts, pie charts, scatter plots and radar charts.
+
 ## Plot types
 
 ```{r setup}
@@ -59,7 +61,7 @@ data.frame(x = 1:10, y = rnorm(10)) |>
 
 ```{r}
 data.frame(
-  character = c("Ross", "Rachel", "Joey", "Phoebe", "Monica", "Chanlder"),
+  character = c("Ross", "Rachel", "Joey", "Phoebe", "Monica", "Chandler"),
   relationships = c(16, 14, 17, 16, 13, 9)
 ) |>
   x_chart(title = "# of relationships in Friends") |>
