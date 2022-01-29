@@ -9,14 +9,12 @@
 x_point <- function(w, x, y, fill = NULL, size = 1, line = FALSE) {
   check_xkcd(w)
 
+  w <- set_common_options(w, x, y, xlabels = FALSE)
+
   w$x$type <- "point"
-  w$x$chartOptions$xLabel <- x
-  w$x$chartOptions$yLabel <- y
   w$x$chartOptions$options$dotSize <- size
   w$x$chartOptions$options$showLine <- line
 
-  w$x$payload$x <- x
-  w$x$payload$y <- y
 
 
   data <- w$x$payload$data[, c(x, y, fill)]

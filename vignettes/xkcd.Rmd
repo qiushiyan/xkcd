@@ -1,8 +1,8 @@
 ---
-title: "Getting Started"
+title: "Getting started with xkcd"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{xkcd}
+  %\VignetteIndexEntry{Getting started with xkcd}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -24,15 +24,15 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(xkcd)
 library(dplyr)
-
-df <- gapminder::gapminder |>
-  filter(country %in% c("United States", "United Kingdom", "Canada", "Australia"))
 ```
 
 
 ### Line graph
 
 ```{r}
+df <- gapminder::gapminder |>
+  filter(country %in% c("United States", "United Kingdom", "Canada", "Australia"))
+
 df |>
   x_chart(title = "my xkcd line graph") |>
   x_line(x = "year", y = "lifeExp", color = "country")
@@ -54,8 +54,8 @@ The `line` parameter in `x_point` controls wheather points are connected, this c
 ```{r}
 data.frame(x = 1:10, y = rnorm(10)) |>
   x_chart() |>
-  x_point(x = "x", y = "y", line = TRUE) |>
-  x_options(legend = FALSE)
+  x_point(x = "x", y = "y", line = TRUE) |> 
+  x_options(ylabel = "")
 ```
 ### Bar and pie plot
 
@@ -99,7 +99,7 @@ data.frame(
 
 ```{r}
 data.frame(
-  x = rep(c("strength", "patience", "skills", "resilient", "flexibility"), 2),
+  x = rep(c("strength", "patience", "skillfulness", "resilience", "flexibility"), 2),
   y = abs(rnorm(10)),
   g = rep(c("tiger", "lion"), each = 5)
 ) |>
@@ -113,7 +113,7 @@ data.frame(
 Common options that apply to all types of plots (set via `x_options`):
 
 - `title`: plot title
-- `xlabel`: x-axis title, default to x varibale
+- `xlabel`: x-axis title, default to x variable
 - `ylabel`: y-axis title, default to x variable
 - `palette`: color palette for grouping variables, the number of colors should equal the number of groups
 - `font_family`: fonts to use, default to "xkcd"

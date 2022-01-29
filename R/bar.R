@@ -8,28 +8,11 @@
 x_bar <- function(w, x, y, fill = NULL) {
   check_xkcd(w)
 
-  w$x$chartOptions$xLabel <- x
-  w$x$chartOptions$yLabel <- y
-  w$x$payload$x <- x
-  w$x$payload$y <- y
-  w$x$payload$xlabels <- unique(w$x$payload$data[[x]])
-
+  w <- set_common_options(w, x, y)
 
   if (!is.null(fill)) {
     w$x$type <- "stacked_bar"
-    w$x$payload$group <- fill
-    data <- w$x$payload$data[, c(y, fill)]
-
-    if (is.factor(data[[fill]])) {
-      data[[fill]] <- as.character(data[[fill]])
-    }
-    data_split <- split(data, data[[fill]])
-    groups <- names(data_split)
-    out <- list()
-    for (g in groups) {
-      out[[g]] <- data_split[[g]][[y]]
-    }
-    w$x$payload$data <- out
+    w <- make_data_split(w, y, fill)
   } else {
     w$x$type <- "bar"
     w$x$payload$data <- w$x$payload$data[, c(x, y)]
@@ -41,14 +24,11 @@ x_bar <- function(w, x, y, fill = NULL) {
 #' @rdname x_bar
 x_pie <- function(w, x, y, radius = 0.5) {
   check_xkcd(w)
+  w <- set_common_options(w, x, y, axis_label = FALSE)
 
   w$x$type <- "pie"
   w$x$chartOptions$options$innerRadius <- radius
 
-
-  w$x$payload$x <- x
-  w$x$payload$y <- y
-  w$x$payload$xlabels <- unique(w$x$payload$data[[x]])
   w$x$payload$data <- w$x$payload$data[[y]]
   w
 }

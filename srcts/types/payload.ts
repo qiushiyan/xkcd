@@ -16,9 +16,17 @@ export type LinePayload =
     };
 
 export type PointPayload =
-  | Required<Pick<Payload, "data" | "x" | "y">> & {
+  | Required<Pick<Payload, "data" | "x" | "y" | "xlabels">> & {
       group?: string;
     };
+
+export type BarPayload =
+  | Required<Pick<Payload, "data" | "x" | "y" | "xlabels">> & {
+      group?: string;
+    };
+
+export type PiePayload = Required<Pick<Payload, "data" | "xlabels">>;
+
 export enum ChartType {
   LINE = "line",
   POINT = "point",

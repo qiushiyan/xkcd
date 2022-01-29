@@ -3073,25 +3073,26 @@ var buildOptions = (x) => {
   });
 };
 var plot = (svg, x) => {
+  const options = buildOptions(x);
+  console.log(options);
   switch (x.type) {
     case "line" /* LINE */:
-      new import_chart.default.Line(svg, buildOptions(x));
+      new import_chart.default.Line(svg, options);
       break;
     case "point" /* POINT */:
-      new import_chart.default.XY(svg, buildOptions(x));
+      new import_chart.default.XY(svg, options);
       break;
     case "bar" /* BAR */:
-      new import_chart.default.Bar(svg, buildOptions(x));
+      new import_chart.default.Bar(svg, options);
       break;
     case "stacked_bar" /* STACKED_BAR */:
-      new import_chart.default.StackedBar(svg, buildOptions(x));
+      new import_chart.default.StackedBar(svg, options);
       break;
     case "pie" /* PIE */:
-      new import_chart.default.Pie(svg, buildOptions(x));
+      new import_chart.default.Pie(svg, options);
       break;
     case "radar" /* RADAR */:
-      console.log(buildOptions(x));
-      new import_chart.default.Radar(svg, buildOptions(x));
+      new import_chart.default.Radar(svg, options);
       break;
   }
 };

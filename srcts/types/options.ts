@@ -4,18 +4,23 @@ export type ChartOptions = Partial<{
   yLabel?: string;
   data: any;
   options?: Partial<{
+    // common options
     xTickCount: number;
     yTickCount: number;
+    dataColors: string[];
     showLegend: boolean;
     legendPosition: PositionType;
-    showLine: boolean;
     timeFormat: undefined;
-    dotSize: number;
     fontFamily: string;
     unxkcdify: boolean;
     strokeColor: string;
     backgroundColor: string;
-    dataColors: string[];
+    // chart-specific options
+    dotSize: number;
+    showLine: boolean;
+    innerRadius: number;
+    ticksCount: number;
+    showLabels: boolean;
   }>;
 }>;
 

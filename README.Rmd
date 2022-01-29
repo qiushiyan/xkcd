@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%",
-  message = FALSE, 
+  message = FALSE,
   warning = FALSE
 )
 ```
@@ -34,7 +34,7 @@ You can install the development version of xkcd like so:
 remotes::install_github("qiushiyan/xkcd")
 ```
 
-A plot is created first by the initialization of `x_chart`, which is appended by functions such as `e_line`, `e_point` and `e_bar` specifying chart type. For example, a line graph of yearly average life expectancy from the `gapminder` dataset is created as follows 
+A plot is created first by the initialization of `x_chart`, which is appended by functions such as `e_line`, `e_point` and `e_bar` specifying chart type. For example, a line graph of yearly average life expectancy from the `gapminder` dataset is created as follows
 
 ```{r, eval = FALSE}
 library(xkcd)
@@ -53,7 +53,7 @@ df |>
 
 
 
-See more examples at [Getting Started](https://qiushiyan.github.io/xkcd/articles/xkcd.html) 
+See  [Getting Started](https://qiushiyan.github.io/xkcd/articles/xkcd.html) for more examples.
 
 
 

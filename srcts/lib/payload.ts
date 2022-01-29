@@ -1,4 +1,11 @@
-import { ChartType, Payload, LinePayload } from "../types/payload";
+import {
+  ChartType,
+  Payload,
+  LinePayload,
+  BarPayload,
+  PointPayload,
+  PiePayload,
+} from "../types/payload";
 
 const lineTransformer = (payload: LinePayload) => {
   let datasets: {}[];
@@ -26,7 +33,7 @@ const lineTransformer = (payload: LinePayload) => {
   };
 };
 
-const barTransformer = (payload: any) => {
+const barTransformer = (payload: BarPayload) => {
   let datasets: {}[] = [];
   if (payload.group) {
     for (let group in payload.data) {
@@ -50,7 +57,7 @@ const barTransformer = (payload: any) => {
   };
 };
 
-const pointTransformer = (payload: any) => {
+const pointTransformer = (payload: PointPayload) => {
   let datasets: {}[] = [];
   if (payload.group) {
     for (let group in payload.data) {
@@ -74,7 +81,7 @@ const pointTransformer = (payload: any) => {
   };
 };
 
-const pieTransformer = (payload: any) => {
+const pieTransformer = (payload: PiePayload) => {
   const datasets = [
     {
       data: payload.data,

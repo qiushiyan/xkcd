@@ -1,17 +1,17 @@
 #' Common configuration options
 #'
 #' @description various functions for controlling guide elements such as title, axis label, legend, and fonts
-#' @param w: an xkcd widget object
-#' @param title: title
-#' @param xlabel: title for x axis
-#' @param ylabel: title for y axis
-#' @param palette: color palette for different groups
-#' @param font_family: font family
-#' @param stroke: color for axis, title and legend box
-#' @param background: background color
-#' @param legend: if legend should be shown
-#' @param legend_position: a integer controlling legend position, 1 (up left), 2 (up right), 3 (down left), 4 (down right)
-#' @param time_format:  time format to use if the x values are time, chart.xkcd use \code{dayjs} to format time,  find the all the available formats at \url{https://github.com/iamkun/dayjs/blob/dev/docs/en/API-reference.md#list-of-all-available-formats}
+#' @param w an xkcd widget object
+#' @param title title
+#' @param xlabel title for x axis
+#' @param ylabel title for y axis
+#' @param palette color palette for different groups
+#' @param font_family font family
+#' @param stroke color for axis, title and legend box
+#' @param background background color
+#' @param legend if legend should be shown
+#' @param legend_position a integer controlling legend position, 1 (up left), 2 (up right), 3 (down left), 4 (down right)
+#' @param time_format  time format to use if the x values are time, chart.xkcd use \code{dayjs} to format time,  find the all the available formats at \url{https://github.com/iamkun/dayjs/blob/dev/docs/en/API-reference.md#list-of-all-available-formats}
 #' @param x_breaks number of breaks for x axis
 #' @param y_breaks number of breaks for y axis
 #' @name xkcd-option
