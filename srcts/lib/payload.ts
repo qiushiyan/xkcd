@@ -74,11 +74,44 @@ const pointTransformer = (payload: any) => {
   };
 };
 
-const pieTransformer = (payload: any) => {};
+const pieTransformer = (payload: any) => {
+  const datasets = [
+    {
+      data: payload.data,
+    },
+  ];
 
-const donutTransformer = (payload: any) => {};
+  return {
+    labels: payload.xlabels,
+    datasets,
+  };
+};
 
-const radarTransformer = (payload: any) => {};
+const radarTransformer = (payload: any) => {
+  let datasets: {}[];
+  if (payload.group) {
+    datasets = [];
+    for (let group in payload.data) {
+      datasets.push({
+        label: group,
+        data: payload.data[group],
+      });
+    }
+  } else {
+    const ydata = payload.data[payload.y];
+    datasets = [
+      {
+        label: payload.y,
+        data: ydata,
+      },
+    ];
+  }
+
+  return {
+    labels: payload.xlabels,
+    datasets,
+  };
+};
 
 const config = {
   bar: barTransformer,
@@ -86,7 +119,6 @@ const config = {
   line: lineTransformer,
   point: pointTransformer,
   pie: pieTransformer,
-  donut: donutTransformer,
   radar: radarTransformer,
 };
 

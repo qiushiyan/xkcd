@@ -32,6 +32,10 @@ x_title(w, title = NULL)
 x_legend(w, legend = TRUE, legend_position = 1)
 }
 \arguments{
+\item{x_breaks}{number of breaks for x axis}
+
+\item{y_breaks}{number of breaks for y axis}
+
 \item{w:}{an xkcd widget object}
 
 \item{title:}{title}

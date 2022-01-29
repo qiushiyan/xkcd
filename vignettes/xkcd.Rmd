@@ -11,13 +11,13 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  out.width = "100%", 
-  warning = FALSE, 
-  message = FALSE 
+  out.width = "100%",
+  warning = FALSE,
+  message = FALSE
 )
 ```
 
-## Plot types 
+## Plot types
 
 ```{r setup}
 library(xkcd)
@@ -33,52 +33,102 @@ df <- gapminder::gapminder |>
 ```{r}
 df |>
   x_chart(title = "my xkcd line graph") |>
-  x_line(x = "year", y = "lifeExp", color = "country") 
+  x_line(x = "year", y = "lifeExp", color = "country")
 ```
 
 
 ### Scatterplot
 
 ```{r}
-iris |> 
-  x_chart() |> 
-  x_point(x = "Sepal.Width", y = "Sepal.Length", fill = "Species", size = 1.5) |> 
+iris |>
+  x_chart() |>
+  x_point(x = "Sepal.Width", y = "Sepal.Length", fill = "Species", size = 1.5) |>
   x_options(title = "scatterplot", palette = c("#f7feae", "#46aea0", "#045275"))
 ```
 
 
-The `line` parameter in `x_point` controls wheather points are connected, this can be used like `geom_point + geom_line` in ggplot2. 
+The `line` parameter in `x_point` controls wheather points are connected, this can be used like `geom_point + geom_line` in ggplot2.
 
 ```{r}
-data.frame(x = 1:10, y = rnorm(10)) |> 
-  x_chart() |> 
-  x_point(x = "x", y = "y", line = TRUE) |> 
+data.frame(x = 1:10, y = rnorm(10)) |>
+  x_chart() |>
+  x_point(x = "x", y = "y", line = TRUE) |>
   x_options(legend = FALSE)
 ```
-## Bar plot 
+### Bar and pie plot
 
 ```{r}
 data.frame(
   character = c("Ross", "Rachel", "Joey", "Phoebe", "Monica", "Chanlder"),
   relationships = c(16, 14, 17, 16, 13, 9)
-) |> 
+) |>
   x_chart(title = "# of relationships in Friends") |>
-  x_bar(x = "character", y = "relationships") |> 
+  x_bar(x = "character", y = "relationships") |>
   x_options(legend = FALSE)
 ```
 
-Stacked bar chart 
+Stacked bar chart
 
 ```{r}
 t <- as.data.frame(Titanic)
 t <- t[rep(1:nrow(t), t$Freq), c("Class", "Survived")]
 
-t |> 
-  count(Class, Survived) |> 
-  x_chart(title = "Titanic survivors by class and age") |> 
-  x_bar(x = "Class", y = "n", fill = "Survived") |> 
+t |>
+  count(Class, Survived) |>
+  x_chart(title = "Titanic survivors by class and age") |>
+  x_bar(x = "Class", y = "n", fill = "Survived") |>
   x_options(ylabel = "")
 ```
 
+pie chart (does not support grouping)
 
-## Configuration options 
+```{r}
+data.frame(
+  x = 1:6,
+  y = 1:6
+) |>
+  x_chart(title = "What I am made of") |>
+  x_pie(x = "x", y = "y", radius = 0) |>
+  x_options(legend_position = 2)
+```
+
+
+### Radar chart
+
+```{r}
+data.frame(
+  x = rep(c("strength", "patience", "skills", "resilient", "flexibility"), 2),
+  y = abs(rnorm(10)),
+  g = rep(c("tiger", "lion"), each = 5)
+) |>
+  x_chart(title = "Tigher and lion: a random comparison") |>
+  x_radar(x = "x", y = "y", color = "g")
+```
+
+
+## Configuration options
+
+Common options that apply to all types of plots (set via `x_options`):
+
+- `title`: plot title
+- `xlabel`: x-axis title, default to x varibale
+- `ylabel`: y-axis title, default to x variable
+- `palette`: color palette for grouping variables, the number of colors should equal the number of groups
+- `font_family`: fonts to use, default to "xkcd"
+- `legend`: whether to show the legend
+- `legend_position`: legend position, 1 (top-right), 2 (top-left), 3 (bottom-left), 4 (bottom-right)
+- `time_format`: time format to use if the x values are time, chart.xkcd use \code{dayjs} to format time,  find the all the available formats at https://github.com/iamkun/dayjs/blob/dev/docs/en/API-reference.md#list-of-all-available-formats
+- `x_breaks`: number of breaks for x axis, default is 3
+- `y_breaks`: number of breaks for y axis, default is 3
+
+specific options for each plot type:
+
+- scatterplot
+  - `size`:  dot size, default to 1
+  - `line`: if dots should be connected, default to FALSE
+- pie chart:
+  - `radius`: arc radius, default to 0.5, for traditional pie chart set it to 0
+- radar chart:
+  - `size`: dot size, default to 1
+  - `label`: whether to show labels for each dimension, default to TRUE
+  - `ticks` number of ticks in each dimension

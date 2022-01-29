@@ -7,7 +7,7 @@
 \usage{
 x_bar(w, x, y, fill = NULL)
 
-x_pie(x, y)
+x_pie(w, x, y, radius = 0.5)
 }
 \arguments{
 \item{w}{an xkcd widget object}
@@ -17,6 +17,8 @@ x_pie(x, y)
 \item{y}{y variable for bar height or arc length in pie chart}
 
 \item{fill}{optional group variable mapped to bar fill}
+
+\item{radius}{specify empty pie chart radius, default to 0.5 For pie chart set radius = 0}
 }
 \description{
 Bar, pie/doughnut charts

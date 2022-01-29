@@ -25,6 +25,5 @@ export enum ChartType {
   BAR = "bar",
   STACKED_BAR = "stacked_bar",
   PIE = "pie",
-  DONUT = "donut",
   RADAR = "radar",
 }

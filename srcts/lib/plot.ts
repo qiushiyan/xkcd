@@ -20,10 +20,18 @@ const plot = (svg: SVGElement, x: any) => {
       new chartXkcd.XY(svg, buildOptions(x));
       break;
     case ChartType.BAR:
-      console.log(buildOptions(x));
       new chartXkcd.Bar(svg, buildOptions(x));
+      break;
     case ChartType.STACKED_BAR:
       new chartXkcd.StackedBar(svg, buildOptions(x));
+      break;
+    case ChartType.PIE:
+      new chartXkcd.Pie(svg, buildOptions(x));
+      break;
+    case ChartType.RADAR:
+      console.log(buildOptions(x));
+      new chartXkcd.Radar(svg, buildOptions(x));
+      break;
   }
 };
 

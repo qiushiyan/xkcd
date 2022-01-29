@@ -25,7 +25,7 @@ x_chart <- function(data, title = NULL, ..., width = NULL, height = NULL, elemen
   )
 }
 
-xkcd_html <- function(..., style = ""){
+xkcd_html <- function(..., style = "") {
   htmltools::tags$div(..., style = c(style, "height: 100%;"))
 }
 
