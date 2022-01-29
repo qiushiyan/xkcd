@@ -1,6 +1,6 @@
 Package: xkcd
 Title: xkcd-styled chart for R 
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Qiushi", "Yan", , "qiushi.yann@gmail.com", role = c("aut", "cre"))
 Description: a wrapper around the javascript chart.xkcd library 
