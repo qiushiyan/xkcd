@@ -1,7 +1,7 @@
-#' Bar, pie and donut charts
+#' Bar, pie/doughnut charts
 #' @param w an xkcd widget object
 #' @param x x variable
-#' @param y y variable for bar height or arc length in pie chart and donut chart
+#' @param y y variable for bar height or arc length in pie chart
 #' @param fill optional group variable mapped to bar fill
 #' @export
 x_bar <- function(w, x, y, fill = NULL) {
@@ -34,4 +34,10 @@ x_bar <- function(w, x, y, fill = NULL) {
         w$x$payload$data <- w$x$payload$data[, c(x, y)]
     }
     w
+}
+
+#' @export
+#' @rdname x_bar
+x_pie <- function(x, y) {
+
 }

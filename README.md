@@ -42,7 +42,7 @@ df |>
 ![](../screenshots/readme-line.png)
 
 See more examples at [Getting
-Started](https://qiushi.github.io/xkcd/articles/xkcd.html)
+Started](https://qiushiyan.github.io/xkcd/articles/xkcd.html)
 
 # Development
 

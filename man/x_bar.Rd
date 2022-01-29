@@ -2,19 +2,22 @@
 % Please edit documentation in R/bar.R
 \name{x_bar}
 \alias{x_bar}
-\title{Bar, pie and donut charts}
+\alias{x_pie}
+\title{Bar, pie/doughnut charts}
 \usage{
 x_bar(w, x, y, fill = NULL)
+
+x_pie(x, y)
 }
 \arguments{
 \item{w}{an xkcd widget object}
 
 \item{x}{x variable}
 
-\item{y}{y variable for bar height or arc length in pie chart and donut chart}
+\item{y}{y variable for bar height or arc length in pie chart}
 
 \item{fill}{optional group variable mapped to bar fill}
 }
 \description{
-Bar, pie and donut charts
+Bar, pie/doughnut charts
 }

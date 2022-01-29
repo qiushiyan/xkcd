@@ -16,5 +16,5 @@ Suggests:
     knitr,
     gapminder,
     rmarkdown
-BugReports: https://qiushiyan.github.io/xkcd/issues
+BugReports: https://github.com/qiushiyan/xkcd/issues
 VignetteBuilder: knitr
