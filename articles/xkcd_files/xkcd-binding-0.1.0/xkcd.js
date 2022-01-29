@@ -3018,10 +3018,39 @@ var pointTransformer = (payload) => {
   };
 };
 var pieTransformer = (payload) => {
-};
-var donutTransformer = (payload) => {
+  const datasets = [
+    {
+      data: payload.data
+    }
+  ];
+  return {
+    labels: payload.xlabels,
+    datasets
+  };
 };
 var radarTransformer = (payload) => {
+  let datasets;
+  if (payload.group) {
+    datasets = [];
+    for (let group in payload.data) {
+      datasets.push({
+        label: group,
+        data: payload.data[group]
+      });
+    }
+  } else {
+    const ydata = payload.data[payload.y];
+    datasets = [
+      {
+        label: payload.y,
+        data: ydata
+      }
+    ];
+  }
+  return {
+    labels: payload.xlabels,
+    datasets
+  };
 };
 var config = {
   bar: barTransformer,
@@ -3029,7 +3058,6 @@ var config = {
   line: lineTransformer,
   point: pointTransformer,
   pie: pieTransformer,
-  donut: donutTransformer,
   radar: radarTransformer
 };
 var transformPayload = (payload, type) => {
@@ -3053,10 +3081,18 @@ var plot = (svg, x) => {
       new import_chart.default.XY(svg, buildOptions(x));
       break;
     case "bar" /* BAR */:
-      console.log(buildOptions(x));
       new import_chart.default.Bar(svg, buildOptions(x));
+      break;
     case "stacked_bar" /* STACKED_BAR */:
       new import_chart.default.StackedBar(svg, buildOptions(x));
+      break;
+    case "pie" /* PIE */:
+      new import_chart.default.Pie(svg, buildOptions(x));
+      break;
+    case "radar" /* RADAR */:
+      console.log(buildOptions(x));
+      new import_chart.default.Radar(svg, buildOptions(x));
+      break;
   }
 };
 var plot_default = plot;
