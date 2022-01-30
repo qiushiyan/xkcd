@@ -32,31 +32,31 @@ x_title(w, title = NULL)
 x_legend(w, legend = TRUE, legend_position = 1)
 }
 \arguments{
+\item{w}{an xkcd widget object}
+
+\item{title}{title}
+
+\item{xlabel}{title for x axis}
+
+\item{ylabel}{title for y axis}
+
+\item{palette}{color palette for different groups}
+
+\item{font_family}{font family}
+
+\item{stroke}{color for axis, title and legend box}
+
+\item{background}{background color}
+
+\item{legend}{if legend should be shown}
+
+\item{legend_position}{a integer controlling legend position, 1 (up left), 2 (up right), 3 (down left), 4 (down right)}
+
+\item{time_format}{time format to use if the x values are time, chart.xkcd use \code{dayjs} to format time,  find the all the available formats at \url{https://github.com/iamkun/dayjs/blob/dev/docs/en/API-reference.md#list-of-all-available-formats}}
+
 \item{x_breaks}{number of breaks for x axis}
 
 \item{y_breaks}{number of breaks for y axis}
-
-\item{w:}{an xkcd widget object}
-
-\item{title:}{title}
-
-\item{xlabel:}{title for x axis}
-
-\item{ylabel:}{title for y axis}
-
-\item{palette:}{color palette for different groups}
-
-\item{font_family:}{font family}
-
-\item{stroke:}{color for axis, title and legend box}
-
-\item{background:}{background color}
-
-\item{legend:}{if legend should be shown}
-
-\item{legend_position:}{a integer controlling legend position, 1 (up left), 2 (up right), 3 (down left), 4 (down right)}
-
-\item{time_format:}{time format to use if the x values are time, chart.xkcd use \code{dayjs} to format time,  find the all the available formats at \url{https://github.com/iamkun/dayjs/blob/dev/docs/en/API-reference.md#list-of-all-available-formats}}
 }
 \description{
 various functions for controlling guide elements such as title, axis label, legend, and fonts
