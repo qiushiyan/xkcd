@@ -2949,47 +2949,50 @@ var require_dist = __commonJS({
 });
 
 // srcts/lib/payload.ts
-var lineTransformer = (payload) => {
+var buildDatasets = (payload, label_single = true, label_group = true) => {
   let datasets;
   if (payload.group) {
     datasets = [];
     for (let group in payload.data) {
-      datasets.push({
-        label: group,
-        data: payload.data[group]
-      });
+      if (label_group) {
+        datasets.push({
+          label: group,
+          data: payload.data[group]
+        });
+      } else {
+        datasets.push({
+          data: payload.data[group]
+        });
+      }
     }
   } else {
     const ydata = payload.data[payload.y];
-    datasets = [
-      {
-        label: payload.y,
-        data: ydata
-      }
-    ];
+    if (label_single) {
+      datasets = [
+        {
+          label: payload.y,
+          data: ydata
+        }
+      ];
+    } else {
+      datasets = [
+        {
+          data: ydata
+        }
+      ];
+    }
   }
+  return datasets;
+};
+var lineTransformer = (payload) => {
+  const datasets = buildDatasets(payload);
   return {
     labels: payload.xlabels,
     datasets
   };
 };
 var barTransformer = (payload) => {
-  let datasets = [];
-  if (payload.group) {
-    for (let group in payload.data) {
-      datasets.push({
-        label: group,
-        data: payload.data[group]
-      });
-    }
-  } else {
-    const ydata = payload.data[payload.y];
-    datasets = [
-      {
-        data: ydata
-      }
-    ];
-  }
+  const datasets = buildDatasets(payload, false);
   return {
     labels: payload.xlabels,
     datasets
@@ -3029,24 +3032,7 @@ var pieTransformer = (payload) => {
   };
 };
 var radarTransformer = (payload) => {
-  let datasets;
-  if (payload.group) {
-    datasets = [];
-    for (let group in payload.data) {
-      datasets.push({
-        label: group,
-        data: payload.data[group]
-      });
-    }
-  } else {
-    const ydata = payload.data[payload.y];
-    datasets = [
-      {
-        label: payload.y,
-        data: ydata
-      }
-    ];
-  }
+  const datasets = buildDatasets(payload);
   return {
     labels: payload.xlabels,
     datasets
@@ -3074,7 +3060,6 @@ var buildOptions = (x) => {
 };
 var plot = (svg, x) => {
   const options = buildOptions(x);
-  console.log(options);
   switch (x.type) {
     case "line" /* LINE */:
       new import_chart.default.Line(svg, options);
@@ -3111,7 +3096,8 @@ HTMLWidgets.widget({
     return {
       renderValue: function(x) {
         if (!x["type"]) {
-          throw new Error("xkcd: a chart type is required after x_chart()");
+          console.warn("xkcd: a chart type is required after x_chart(), e.g. x_chart(data.frame(x = 1:10, y = 1:10)) |> x_line(x = 'x', y = 'y'), see https://qiushiyan.github.io/xkcd/index.html for documentation");
+          return;
         }
         const svg = createSvg();
         el.appendChild(svg);

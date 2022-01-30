@@ -13,7 +13,10 @@ HTMLWidgets.widget({
     return {
       renderValue: function (x: any) {
         if (!x["type"]) {
-          throw new Error("xkcd: a chart type is required after x_chart()");
+          console.warn(
+            "xkcd: a chart type is required after x_chart(), e.g. x_chart(data.frame(x = 1:10, y = 1:10)) |> x_line(x = 'x', y = 'y'), see https://qiushiyan.github.io/xkcd/index.html for documentation"
+          );
+          return;
         }
 
         const svg = createSvg();

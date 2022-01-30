@@ -14,7 +14,6 @@ const buildOptions = (x: any): ChartOptions => {
 
 const plot = (svg: SVGElement, x: any) => {
   const options = buildOptions(x);
-  console.log(options);
 
   switch (x.type) {
     case ChartType.LINE:

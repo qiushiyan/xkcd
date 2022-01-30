@@ -119,7 +119,7 @@ Common options that apply to all types of plots (set via `x_options`):
 - `font_family`: fonts to use, default to "xkcd"
 - `legend`: whether to show the legend
 - `legend_position`: legend position, 1 (top-right), 2 (top-left), 3 (bottom-left), 4 (bottom-right)
-- `time_format`: time format to use if the x values are time, chart.xkcd use \code{dayjs} to format time,  find the all the available formats at https://github.com/iamkun/dayjs/blob/dev/docs/en/API-reference.md#list-of-all-available-formats
+- `time_format`: time format to use if the x values are time, chart.xkcd use `dayjs` to format time,  find the all the available formats at https://github.com/iamkun/dayjs/blob/dev/docs/en/API-reference.md#list-of-all-available-formats
 - `x_breaks`: number of breaks for x axis, default is 3
 - `y_breaks`: number of breaks for y axis, default is 3
 

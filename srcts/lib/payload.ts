@@ -7,25 +7,49 @@ import {
   PiePayload,
 } from "../types/payload";
 
-const lineTransformer = (payload: LinePayload) => {
+const buildDatasets = (
+  payload: any,
+  label_single: boolean = true,
+  label_group: boolean = true
+) => {
   let datasets: {}[];
   if (payload.group) {
     datasets = [];
     for (let group in payload.data) {
-      datasets.push({
-        label: group,
-        data: payload.data[group],
-      });
+      if (label_group) {
+        datasets.push({
+          label: group,
+          data: payload.data[group],
+        });
+      } else {
+        datasets.push({
+          data: payload.data[group],
+        });
+      }
     }
   } else {
     const ydata = payload.data[payload.y];
-    datasets = [
-      {
-        label: payload.y,
-        data: ydata,
-      },
-    ];
+    if (label_single) {
+      datasets = [
+        {
+          label: payload.y,
+          data: ydata,
+        },
+      ];
+    } else {
+      datasets = [
+        {
+          data: ydata,
+        },
+      ];
+    }
   }
+
+  return datasets;
+};
+
+const lineTransformer = (payload: LinePayload) => {
+  const datasets = buildDatasets(payload);
 
   return {
     labels: payload.xlabels,
@@ -34,22 +58,7 @@ const lineTransformer = (payload: LinePayload) => {
 };
 
 const barTransformer = (payload: BarPayload) => {
-  let datasets: {}[] = [];
-  if (payload.group) {
-    for (let group in payload.data) {
-      datasets.push({
-        label: group,
-        data: payload.data[group],
-      });
-    }
-  } else {
-    const ydata = payload.data[payload.y];
-    datasets = [
-      {
-        data: ydata,
-      },
-    ];
-  }
+  const datasets = buildDatasets(payload, false);
 
   return {
     labels: payload.xlabels,
@@ -58,6 +67,7 @@ const barTransformer = (payload: BarPayload) => {
 };
 
 const pointTransformer = (payload: PointPayload) => {
+  // point use different input standard so buildDatasets is not applicable
   let datasets: {}[] = [];
   if (payload.group) {
     for (let group in payload.data) {
@@ -82,6 +92,7 @@ const pointTransformer = (payload: PointPayload) => {
 };
 
 const pieTransformer = (payload: PiePayload) => {
+  // pie chart does not require manipulation
   const datasets = [
     {
       data: payload.data,
@@ -95,24 +106,7 @@ const pieTransformer = (payload: PiePayload) => {
 };
 
 const radarTransformer = (payload: any) => {
-  let datasets: {}[];
-  if (payload.group) {
-    datasets = [];
-    for (let group in payload.data) {
-      datasets.push({
-        label: group,
-        data: payload.data[group],
-      });
-    }
-  } else {
-    const ydata = payload.data[payload.y];
-    datasets = [
-      {
-        label: payload.y,
-        data: ydata,
-      },
-    ];
-  }
+  const datasets = buildDatasets(payload);
 
   return {
     labels: payload.xlabels,
