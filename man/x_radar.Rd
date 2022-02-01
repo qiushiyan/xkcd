@@ -4,7 +4,7 @@
 \alias{x_radar}
 \title{Radar chart}
 \usage{
-x_radar(w, x, y, color = NULL, label = TRUE, size = 1, ticks = 3)
+x_radar(w, x = "x", y = "y", color = NULL, label = TRUE, size = 1, ticks = 3)
 }
 \arguments{
 \item{w}{an xkcd widget object}
@@ -23,4 +23,13 @@ x_radar(w, x, y, color = NULL, label = TRUE, size = 1, ticks = 3)
 }
 \description{
 Radar chart
+}
+\examples{
+data.frame(
+ x = rep(c("strength", "patience", "skillfulness", "resilience", "flexibility"), 2),
+ y = abs(rnorm(10)),
+ g = rep(c("tiger", "lion"), each = 5)
+) |>
+ x_chart(title = "Tiger and lion: a random comparison") |>
+ x_radar(color = "g")
 }

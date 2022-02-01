@@ -5,12 +5,25 @@
 \alias{x_chart}
 \title{Initialize}
 \usage{
-x_chart(data, title = NULL, ..., width = NULL, height = NULL, elementId = NULL)
+x_chart(
+  data,
+  title = NULL,
+  x = "x",
+  y = "y",
+  ...,
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+)
 }
 \arguments{
 \item{data}{data frame}
 
 \item{title}{chart title}
+
+\item{x}{x variable}
+
+\item{y}{y variable}
 
 \item{...}{other configuration options, see \code{\link{x_options}}}
 }

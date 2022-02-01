@@ -5,9 +5,9 @@
 \alias{x_pie}
 \title{Bar, pie/doughnut charts}
 \usage{
-x_bar(w, x, y, fill = NULL)
+x_bar(w, x = "x", y = "y", fill = NULL)
 
-x_pie(w, x, y, radius = 0.5)
+x_pie(w, x = "x", y = "y", radius = 0.5)
 }
 \arguments{
 \item{w}{an xkcd widget object}
@@ -22,4 +22,12 @@ x_pie(w, x, y, radius = 0.5)
 }
 \description{
 Bar, pie/doughnut charts
+}
+\examples{
+data.frame(
+  x = LETTERS[1:6],
+  y = abs(rnorm(6))
+) |>
+  x_chart() |>
+  x_bar()
 }

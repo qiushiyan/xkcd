@@ -4,7 +4,7 @@
 \alias{x_point}
 \title{Scatterplot}
 \usage{
-x_point(w, x, y, fill = NULL, size = 1, line = FALSE)
+x_point(w, x = "x", y = "y", fill = NULL, size = 1, line = FALSE)
 }
 \arguments{
 \item{w}{an xkcd widget object}
@@ -21,4 +21,13 @@ x_point(w, x, y, fill = NULL, size = 1, line = FALSE)
 }
 \description{
 Scatterplot
+}
+\examples{
+data.frame(
+  x = rnorm(50),
+  y = rnorm(50)
+) |>
+  x_chart() |>
+  x_point(fill = "x") |>
+  x_options(legend = FALSE)
 }

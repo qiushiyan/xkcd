@@ -4,7 +4,7 @@
 \alias{x_line}
 \title{Line Graph}
 \usage{
-x_line(w, x, y, color = NULL)
+x_line(w, x = "x", y = "y", color = NULL)
 }
 \arguments{
 \item{w}{an xkcd widget object}
@@ -17,4 +17,9 @@ x_line(w, x, y, color = NULL)
 }
 \description{
 Line Graph
+}
+\examples{
+subset(airquality, Month == 5) |>
+ x_chart() |>
+ x_line(x = "Day", y = "Temp")
 }

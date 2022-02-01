@@ -5,9 +5,25 @@
 #' @param fill optional group variable mapped to dot fill
 #' @param size dot size
 #' @param line if dots should be connected by line
+#' @examples
+#' data.frame(
+#'   x = rnorm(50),
+#'   y = rnorm(50)
+#' ) |>
+#'   x_chart() |>
+#'   x_point(fill = "x") |>
+#'   x_options(legend = FALSE)
 #' @export
-x_point <- function(w, x, y, fill = NULL, size = 1, line = FALSE) {
+x_point <- function(w, x = "x", y = "y", fill = NULL, size = 1, line = FALSE) {
   check_xkcd(w)
+
+  # if not specified, inherit from x_chart()
+  if (missing(x)) {
+    x <- w$x$payload$x
+  }
+  if (missing(y)) {
+    y <- w$x$payload$y
+  }
 
   w <- set_common_options(w, x, y, xlabels = FALSE)
 

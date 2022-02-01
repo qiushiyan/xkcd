@@ -17,6 +17,14 @@ knitr::opts_chunk$set(
 )
 ```
 
+A plot needs to have at least the following 3 components:
+
+- `data`: the data frame used, initialized via `x_chart(data = data)`
+
+- `x`: an x variable (quoted column name, default to "x"), can be passed in `x_chart` or (overridden) in later calls of specific plot types, e.g. either `x_chart(x = "x")` of `x_bar(x = "x")` is acceptable.
+
+- `y`: an y variable, default to "y", settings are similar to `x`
+
 `xkcd` provides plot types for line charts, bar charts, pie charts, scatter plots and radar charts.
 
 ## Plot types
@@ -34,8 +42,8 @@ df <- gapminder::gapminder |>
   filter(country %in% c("United States", "United Kingdom", "Canada", "Australia"))
 
 df |>
-  x_chart(title = "my xkcd line graph") |>
-  x_line(x = "year", y = "lifeExp", color = "country")
+  x_chart(title = "my xkcd line graph", x = "year", y = "lifeExp") |>
+  x_line(color = "country")
 ```
 
 
@@ -44,7 +52,10 @@ df |>
 ```{r}
 iris |>
   x_chart() |>
-  x_point(x = "Sepal.Width", y = "Sepal.Length", fill = "Species", size = 1.5) |>
+  x_point(x = "Sepal.Width", 
+          y = "Sepal.Length", 
+          fill = "Species", 
+          size = 1.5) |>
   x_options(title = "scatterplot", palette = c("#f7feae", "#46aea0", "#045275"))
 ```
 
@@ -54,7 +65,7 @@ The `line` parameter in `x_point` controls wheather points are connected, this c
 ```{r}
 data.frame(x = 1:10, y = rnorm(10)) |>
   x_chart() |>
-  x_point(x = "x", y = "y", line = TRUE) |>
+  x_point(line = TRUE) |>
   x_options(ylabel = "")
 ```
 ### Bar and pie plot
@@ -90,7 +101,7 @@ data.frame(
   y = 1:6
 ) |>
   x_chart(title = "What I am made of") |>
-  x_pie(x = "x", y = "y", radius = 0) |>
+  x_pie(radius = 0) |>
   x_options(legend_position = 2)
 ```
 
@@ -104,7 +115,7 @@ data.frame(
   g = rep(c("tiger", "lion"), each = 5)
 ) |>
   x_chart(title = "Tiger and lion: a random comparison") |>
-  x_radar(x = "x", y = "y", color = "g")
+  x_radar(color = "g")
 ```
 
 
