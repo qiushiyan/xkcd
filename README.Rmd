@@ -34,7 +34,7 @@ You can install the development version of xkcd like so:
 remotes::install_github("qiushiyan/xkcd")
 ```
 
-A plot is created first by the initialization of `x_chart`, which is appended by functions such as `e_line`, `e_point` and `e_bar` specifying chart type. For example, a line graph of yearly average life expectancy from the `gapminder` dataset is created as follows
+Inspired by [`echarts4r`](https://echarts4r.john-coene.com/), a plot is created first by initialization of `x_chart`, which is appended by functions such as `x_line`, `x_point` and `x_bar` specifying chart type. For example, a line graph of yearly average life expectancy from the `gapminder` dataset is created as follows
 
 ```{r, eval = FALSE}
 library(xkcd)
