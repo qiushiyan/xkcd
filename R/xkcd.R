@@ -1,14 +1,12 @@
-#' Initialize
+#' Initialize xkcd widget
 #'
-#' Initialize a xkcd widget
-#' @description for specific chart types, either one of \code{x_line}, \code{x_point}, \code{x_bar}, \code{x_pie} or \code{x_radar} needs to be appended after \code{x_chart}
+#' for specific chart types, either one of \code{x_line}, \code{x_point}, \code{x_bar}, \code{x_pie} or \code{x_radar} needs to be appended after \code{x_chart}
 #' @param data data frame
 #' @param title chart title
 #' @param x x variable
 #' @param y y variable
 #' @param ... other configuration options, see \code{\link{x_options}}
 #' @import htmlwidgets
-#' @name init
 #' @export
 x_chart <- function(data, title = NULL, x = "x", y = "y", ..., width = NULL, height = NULL, elementId = NULL) {
   x <- list(
