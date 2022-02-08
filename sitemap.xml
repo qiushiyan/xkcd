@@ -25,10 +25,10 @@
     <loc>https://qiushiyan.github.io/xkcd/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://qiushiyan.github.io/xkcd/reference/init.html</loc>
+    <loc>https://qiushiyan.github.io/xkcd/reference/x_bar.html</loc>
   </url>
   <url>
-    <loc>https://qiushiyan.github.io/xkcd/reference/x_bar.html</loc>
+    <loc>https://qiushiyan.github.io/xkcd/reference/x_chart.html</loc>
   </url>
   <url>
     <loc>https://qiushiyan.github.io/xkcd/reference/x_line.html</loc>
@@ -44,5 +44,8 @@
   </url>
   <url>
     <loc>https://qiushiyan.github.io/xkcd/reference/xkcd-shiny.html</loc>
+  </url>
+  <url>
+    <loc>https://qiushiyan.github.io/xkcd/reference/xkcd.html</loc>
   </url>
 </urlset>
