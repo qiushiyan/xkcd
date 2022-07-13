@@ -51,35 +51,44 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">x_bar</span><span class="op">(</span><span class="va">w</span>, x <span class="op">=</span> <span class="st">"x"</span>, y <span class="op">=</span> <span class="st">"y"</span>, fill <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-
-<span class="fu">x_pie</span><span class="op">(</span><span class="va">w</span>, x <span class="op">=</span> <span class="st">"x"</span>, y <span class="op">=</span> <span class="st">"y"</span>, radius <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">x_bar</span><span class="op">(</span><span class="va">w</span>, x <span class="op">=</span> <span class="st">"x"</span>, y <span class="op">=</span> <span class="st">"y"</span>, fill <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">x_pie</span><span class="op">(</span><span class="va">w</span>, x <span class="op">=</span> <span class="st">"x"</span>, y <span class="op">=</span> <span class="st">"y"</span>, radius <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>w</dt>
 <dd><p>an xkcd widget object</p></dd>
+
+
 <dt>x</dt>
 <dd><p>x variable</p></dd>
+
+
 <dt>y</dt>
 <dd><p>y variable for bar height or arc length in pie chart</p></dd>
+
+
 <dt>fill</dt>
 <dd><p>optional group variable mapped to bar fill</p></dd>
+
+
 <dt>radius</dt>
 <dd><p>specify empty pie chart radius, default to 0.5 For pie chart set radius = 0</p></dd>
+
 </dl></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
-<span class="r-in">  x <span class="op">=</span> <span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>,</span>
-<span class="r-in">  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span> |&gt;</span>
-<span class="r-in">  <span class="fu"><a href="x_chart.html">x_chart</a></span><span class="op">(</span><span class="op">)</span> |&gt;</span>
-<span class="r-in">  <span class="fu">x_bar</span><span class="op">(</span><span class="op">)</span></span>
-<div id="htmlwidget-a2fe4db44bd3446e844d" class="xkcd html-widget" width="700" height="432.632880098888" style="width:700px;height:432.632880098888px; height: 100%;"></div>
-<script type="application/json" data-for="htmlwidget-a2fe4db44bd3446e844d">{"x":{"payload":{"data":{"x":["A","B","C","D","E","F"],"y":[0.574637560641604,0.138677772984523,0.471264024372716,0.00399899096919532,0.640489271584201,0.932479769587493]},"x":"x","y":"y","xlabels":["A","B","C","D","E","F"]},"chartOptions":{"title":null,"xLabel":"x","yLabel":"y"},"type":"bar"},"evals":[],"jsHooks":[]}</script></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  x <span class="op">=</span> <span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>,</span></span>
+<span class="r-in"><span>  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="x_chart.html">x_chart</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu">x_bar</span><span class="op">(</span><span class="op">)</span></span></span>
+<div id="htmlwidget-9cb65765e5319333f11b" class="xkcd html-widget" width="700" height="432.632880098888" style="width:700px;height:432.632880098888px; height: 100%;"></div>
+<script type="application/json" data-for="htmlwidget-9cb65765e5319333f11b">{"x":{"payload":{"data":{"x":["A","B","C","D","E","F"],"y":[0.727463769184143,2.18290987208091,0.581761773752854,0.113222993376792,0.316216383552873,0.203829846048649]},"x":"x","y":"y","xlabels":["A","B","C","D","E","F"]},"chartOptions":{"title":null,"xLabel":"x","yLabel":"y"},"type":"bar"},"evals":[],"jsHooks":[]}</script></code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
@@ -90,7 +99,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>

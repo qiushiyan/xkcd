@@ -51,38 +51,51 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">x_radar</span><span class="op">(</span><span class="va">w</span>, x <span class="op">=</span> <span class="st">"x"</span>, y <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="cn">NULL</span>, label <span class="op">=</span> <span class="cn">TRUE</span>, size <span class="op">=</span> <span class="fl">1</span>, ticks <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">x_radar</span><span class="op">(</span><span class="va">w</span>, x <span class="op">=</span> <span class="st">"x"</span>, y <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="cn">NULL</span>, label <span class="op">=</span> <span class="cn">TRUE</span>, size <span class="op">=</span> <span class="fl">1</span>, ticks <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>w</dt>
 <dd><p>an xkcd widget object</p></dd>
+
+
 <dt>x</dt>
 <dd><p>x variable (dimension)</p></dd>
+
+
 <dt>y</dt>
 <dd><p>y variable (spoke length)</p></dd>
+
+
 <dt>color</dt>
 <dd><p>optional group variable mapped to colors</p></dd>
+
+
 <dt>label</dt>
 <dd><p>display labels for each dimension</p></dd>
+
+
 <dt>size</dt>
 <dd><p>dot size</p></dd>
+
+
 <dt>ticks</dt>
 <dd><p>number of ticks on the main line</p></dd>
+
 </dl></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
-<span class="r-in"> x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"strength"</span>, <span class="st">"patience"</span>, <span class="st">"skillfulness"</span>, <span class="st">"resilience"</span>, <span class="st">"flexibility"</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span>,</span>
-<span class="r-in"> y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in"> g <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"tiger"</span>, <span class="st">"lion"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span> |&gt;</span>
-<span class="r-in"> <span class="fu"><a href="x_chart.html">x_chart</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Tiger and lion: a random comparison"</span><span class="op">)</span> |&gt;</span>
-<span class="r-in"> <span class="fu">x_radar</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"g"</span><span class="op">)</span></span>
-<div id="htmlwidget-572135fa3f2c80fd1810" class="xkcd html-widget" width="700" height="432.632880098888" style="width:700px;height:432.632880098888px; height: 100%;"></div>
-<script type="application/json" data-for="htmlwidget-572135fa3f2c80fd1810">{"x":{"payload":{"data":{"lion":[0.471950338913829,0.565960682948946,0.921095655624159,2.12861126301905,1.79628309932699],"tiger":[0.480422694757155,0.507175121764245,1.02885640015137,1.19965718642847,2.12224126818917]},"x":"x","y":"y","xlabels":["strength","patience","skillfulness","resilience","flexibility"],"group":"g"},"chartOptions":{"title":"Tiger and lion: a random comparison","options":{"showLabels":true,"dotSize":1,"ticksCount":3}},"type":"radar"},"evals":[],"jsHooks":[]}</script></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span> x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"strength"</span>, <span class="st">"patience"</span>, <span class="st">"skillfulness"</span>, <span class="st">"resilience"</span>, <span class="st">"flexibility"</span><span class="op">)</span>, <span class="fl">2</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span> y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span> g <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"tiger"</span>, <span class="st">"lion"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="x_chart.html">x_chart</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Tiger and lion: a random comparison"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span> <span class="fu">x_radar</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"g"</span><span class="op">)</span></span></span>
+<div id="htmlwidget-cc3b0c1377e11bce44bf" class="xkcd html-widget" width="700" height="432.632880098888" style="width:700px;height:432.632880098888px; height: 100%;"></div>
+<script type="application/json" data-for="htmlwidget-cc3b0c1377e11bce44bf">{"x":{"payload":{"data":{"lion":[1.81725722617263,0.261548600221824,0.483570604595213,0.382049763856491,0.0739355936395097],"tiger":[0.324365128270522,0.740011517307965,0.451954568963797,1.77843390269835,0.299340819263691]},"x":"x","y":"y","xlabels":["strength","patience","skillfulness","resilience","flexibility"],"group":"g"},"chartOptions":{"title":"Tiger and lion: a random comparison","options":{"showLabels":true,"dotSize":1,"ticksCount":3}},"type":"radar"},"evals":[],"jsHooks":[]}</script></code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
@@ -93,7 +106,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>
